@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux'
+import * as userActions from "../store/action/user"
 
 const Home = () => {
   const [user, setUser] = useState({
@@ -6,6 +8,8 @@ const Home = () => {
     name: "",
     password: "",
   });
+
+  const dispatch = useDispatch()
 
   const inputHandler = (e) => {
     const { name, value } = e.target;
@@ -17,19 +21,21 @@ const Home = () => {
     });
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log(user);
+
+  const addUser = (e) => {
+    e.preventDefault() 
+    dispatch(userActions.addUser(user))
+    console.log(user)
 
     setUser({
-      id: "",
-      name: "",
-      password: "",
-    });
-  };
+        id: "",
+        name: "",
+        password: "",
+      });
+  }
 
   return (
-    <form onSubmit={submitHandler}>
+    <form onSubmit={addUser}>
       <h1>Home</h1>
       <h3>Add User Form</h3>
       <input

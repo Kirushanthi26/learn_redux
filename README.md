@@ -11,3 +11,5 @@ https://legacy.reactjs.org/docs/context.html
 npm install react-redux
 
 npm install redux react-redux react-router-dom
+
+home -> action -> reducer 
