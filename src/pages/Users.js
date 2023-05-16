@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import * as userActions from "../store/action/user"
+import { Link } from 'react-router-dom'
 
 const Users = () => {
 
@@ -21,12 +22,14 @@ const Users = () => {
     <div>
       <h1>Users</h1>
       <ul>
-      {users.map((user, index)=>
+        {users.length ===0 && <p>no user data...</p>}
+      {users.length >0 && users.map((user, index)=>
         <li key={index}>{user.id} || {user.name} || {user.password}</li>
       )}
       </ul>
 
       <button onClick={clearUser}>clear the list</button>
+      <Link to="/">Home</Link>
     </div>
   )
 }
