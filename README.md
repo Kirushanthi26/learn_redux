@@ -2,7 +2,7 @@ redux
 (UI —→ dispatch action —>reducer —→ new state —→ store —→ update —> UI)
 
 react route 
-not reload new page -> just change route 
+not reload/refresh for new page -> just change route to new page
 
 https://redux.js.org/introduction/installation
 https://www.npmjs.com/package/react-router-dom
