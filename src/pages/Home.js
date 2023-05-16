@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { useDispatch } from 'react-redux'
 import * as userActions from "../store/action/user"
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [user, setUser] = useState({
@@ -25,7 +26,6 @@ const Home = () => {
   const addUser = (e) => {
     e.preventDefault() 
     dispatch(userActions.addUser(user))
-    console.log(user)
 
     setUser({
         id: "",
@@ -35,6 +35,7 @@ const Home = () => {
   }
 
   return (
+    <Fragment>
     <form onSubmit={addUser}>
       <h1>Home</h1>
       <h3>Add User Form</h3>
@@ -61,6 +62,10 @@ const Home = () => {
       />
       <button type="submit">add user</button>
     </form>
+
+
+    <Link to="/users">List of Users</Link>
+    </Fragment>
   );
 };
 
